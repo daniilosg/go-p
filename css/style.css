@@ -1,0 +1,130 @@
+/*
+  Replica visual del proyecto original.
+  Se importa la hoja publicada por la referencia para mantener la misma escala,
+  tipografía, espaciado, colores y breakpoints del HTML exportado.
+  Las reglas debajo son locales y cubren interacciones/recurso de respaldo.
+*/
+@import url("https://aulasdepilates-br.lovable.app/assets/styles-BnQvbgd5.css");
+
+:root{
+  --pp-primary:#8f6bb4;
+  --pp-primary-dark:#745292;
+  --pp-ink:#2f2933;
+  --pp-muted:#736b76;
+  --pp-card:#fff;
+  --pp-border:#e8e0e8;
+  --pp-cream:#fbf6ef;
+  --pp-blush:#ead8df;
+  --pp-blush-light:#fbf3f5;
+}
+
+html{scroll-behavior:smooth}
+body{margin:0}
+body.modal-open{overflow:hidden}
+
+/* Fallback mínimo si la hoja de referencia no estuviera disponible. */
+body{font-family:"Work Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--pp-ink);background:#fff}
+h1,h2,h3{font-family:"Outfit",system-ui,sans-serif}
+a{color:inherit}
+img{max-width:100%}
+
+/* FAQ */
+.faq-question{cursor:pointer}
+.faq-answer{padding:0 1rem 1rem;color:var(--pp-muted);font-size:.875rem;line-height:1.65}
+.faq-answer[hidden]{display:none!important}
+.faq-question svg{transition:transform .2s ease}
+.faq-question[aria-expanded="true"] svg{transform:rotate(180deg)}
+
+/* Testimonios */
+#testimonial-card{transition:opacity .18s ease,transform .18s ease}
+#testimonial-card.is-changing{opacity:.25;transform:translateY(3px)}
+#testimonial-image{transition:opacity .18s ease}
+
+/* Modal Basic — replica del modal de la referencia */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:999999;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;background:rgba(0,0,0,.58);backdrop-filter:blur(3px);
+}
+.modal-backdrop[hidden]{display:none!important}
+.modal-reference-card{animation:modalIn .2s ease-out}
+@keyframes modalIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.modal-close{cursor:pointer;border:0}
+.modal-reference-card::-webkit-scrollbar{width:7px}
+.modal-reference-card::-webkit-scrollbar-thumb{background:rgba(143,107,180,.28);border-radius:999px}
+
+@media(max-width:640px){
+  .modal-backdrop{padding:12px}
+}
+
+/* Sección Ana Martins — fuerza la escala de la referencia incluso si falla alguna utilidad remota. */
+.ana-martins-photo{
+  display:block;
+  width:100%;
+  max-width:28rem; /* 448 px: proporción visual de la referencia */
+  height:auto;
+  aspect-ratio:2 / 3;
+  object-fit:cover;
+  margin-inline:auto;
+}
+.ana-martins-cta{color:#FFFFFF !important;}
+
+@media(max-width:640px){
+  .ana-martins-photo{max-width:min(28rem,100%);}
+}
+
+/* Accesibilidad */
+:focus-visible{outline:2px solid var(--pp-primary);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+/* Notificación de compra reciente — aparece y desaparece como en la referencia */
+.purchase-toast{
+  position:fixed;
+  z-index:50;
+  left:1rem;
+  right:1rem;
+  bottom:1rem;
+  opacity:0;
+  transform:translateY(1rem);
+  pointer-events:none;
+  transition:opacity .5s ease,transform .5s ease;
+}
+.purchase-toast.is-visible{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.purchase-toast-card{
+  background:var(--pp-card,#fff);
+  border:1px solid var(--pp-border,#e8e0e8);
+  border-radius:.75rem;
+  box-shadow:0 20px 45px rgba(73,51,88,.18);
+  padding:.75rem;
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+.purchase-toast-icon{
+  width:2.75rem;
+  height:2.75rem;
+  flex:0 0 2.75rem;
+  border-radius:999px;
+  background:rgba(143,107,180,.10);
+  color:var(--pp-primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.purchase-toast-close{
+  border:0;
+  background:transparent;
+  padding:.25rem;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+@media(min-width:640px){
+  .purchase-toast{right:auto;max-width:24rem;}
+}
