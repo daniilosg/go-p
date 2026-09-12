@@ -4,28 +4,28 @@ window.PILATES_CONFIG = {
   },
   "secoes": {
     "bonos_exclusivos": {
-      "hidden": false
+      "hidden": true
     }
   },
   "garantia": {
-    "30_dias": "30 días",
-    "90_dias": "90 días"
+    "30_dias": "7 días",
+    "90_dias": "15 días"
   },
   "precos": {
-    "basic": "R$10",
-    "premium-slim": "R$19,90",
-    "premium-fat": "R$29,90",
-    "basic-riscado": "R$47",
-    "premium-riscado": "R$197"
+    "basic": "$10",
+    "premium-slim": "$19,90",
+    "premium-fat": "$29,90",
+    "basic-riscado": "$47",
+    "premium-riscado": "$197"
   },
   "precos_bonus": {
-    "aulas-express": "R$97",
-    "programa-30-dias": "R$127",
-    "biblioteca-video": "R$147",
-    "publico-60-mais": "R$67",
-    "planner-mensual": "R$47",
-    "guia-adaptacoes": "R$67",
-    "total": "R$552"
+    "aulas-express": "$97",
+    "programa-30-dias": "$127",
+    "biblioteca-video": "$147",
+    "publico-60-mais": "$67",
+    "planner-mensual": "$47",
+    "guia-adaptacoes": "$67",
+    "total": "$552"
   },
 
   "notificacao": {
