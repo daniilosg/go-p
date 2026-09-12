@@ -12,7 +12,7 @@ window.PILATES_CONFIG = {
     "90_dias": "15 días"
   },
   "precos": {
-    "basic": "$10",
+    "basic": "$14,90",
     "premium-slim": "$19,90",
     "premium-fat": "$29,90",
     "basic-riscado": "$47",
@@ -22,9 +22,9 @@ window.PILATES_CONFIG = {
   "links_pagamento": {
     // Links de checkout correspondentes aos três preços/planos.
     // Edite somente os URLs abaixo para trocar os destinos dos botões/cards/popup.
-    "basic": "https://pay.wiapy.com/xt5iPaGkbRKi?utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=",
-    "premium-slim": "https://pay.wiapy.com/oYuKW2d6xmy?utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=",
-    "premium-fat": "https://pay.hotmart.com/I107548226W"
+    "basic": "https://pay.hotmart.com/L107582936U?off=tj29xkic",
+    "premium-slim": "https://pay.hotmart.com/L107582936U?off=4c9z96xq",
+    "premium-fat": "https://pay.hotmart.com/L107582936U?off=3kgdxz0r"
   },
   "precos_bonus": {
     "aulas-express": "$97",
