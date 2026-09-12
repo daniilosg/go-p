@@ -18,6 +18,14 @@ window.PILATES_CONFIG = {
     "basic-riscado": "$47",
     "premium-riscado": "$197"
   },
+
+  "links_pagamento": {
+    // Links de checkout correspondentes aos três preços/planos.
+    // Edite somente os URLs abaixo para trocar os destinos dos botões/cards/popup.
+    "basic": "https://pay.wiapy.com/xt5iPaGkbRKi?utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=",
+    "premium-slim": "https://pay.wiapy.com/oYuKW2d6xmy?utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=",
+    "premium-fat": "https://pay.hotmart.com/I107548226W"
+  },
   "precos_bonus": {
     "aulas-express": "$97",
     "programa-30-dias": "$127",

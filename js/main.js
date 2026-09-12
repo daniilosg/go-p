@@ -166,6 +166,19 @@
     document.querySelectorAll('meta[content]').forEach((meta) => {
       configReplaceAttribute(meta, 'content', priceReplacements);
     });
+
+
+    // 4. Links de pago/checkouts.
+    // Cada enlace marcado con data-config-payment-link toma su URL desde config.js.
+    // El href del HTML queda como fallback si JavaScript no carga.
+    const paymentLinks = siteConfig?.links_pagamento || {};
+    document.querySelectorAll('[data-config-payment-link]').forEach((element) => {
+      const key = element.getAttribute('data-config-payment-link');
+      const configured = paymentLinks[key];
+      if (typeof configured === 'string' && configured.trim()) {
+        element.setAttribute('href', configured.trim());
+      }
+    });
   }
 
   applySiteConfig();

@@ -119,3 +119,22 @@ A notificação que aparece e some no canto da página também é gerenciada pel
 - `"es"`: usa textos em espanhol, nomes mais naturais em espanhol e sorteia entre Argentina, Bolivia, Chile, Colombia, Costa Rica, Ecuador, El Salvador, España, Guatemala, Honduras, México, Nicaragua, Panamá, Paraguay, Perú, República Dominicana, Uruguay, Guinea Ecuatorial e Puerto Rico.
 
 A cada nova aparição da notificação, o site sorteia outro nome e outra localização e evita repetir imediatamente o item anterior.
+
+
+## Links de pagamento no config.js
+
+Os três checkouts `pay.wiapy.com` também são gerenciados pelo `config.js`:
+
+```js
+"links_pagamento": {
+  "basic": "https://pay.wiapy.com/xt5iPaGkbRKi?...",
+  "premium-slim": "https://pay.wiapy.com/oYuKW2d6xmy?...",
+  "premium-fat": "https://pay.wiapy.com/4I0swkB43iQK"
+}
+```
+
+- `basic`: checkout de R$10 (opção Basic no popup).
+- `premium-slim`: checkout promocional de R$19,90 no popup de upgrade.
+- `premium-fat`: checkout de R$29,90 do card Plan Premium.
+
+Para trocar um checkout, altere somente o URL da key correspondente. Os botões mantêm os URLs originais no HTML apenas como fallback caso o JavaScript não seja carregado.
