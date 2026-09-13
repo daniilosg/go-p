@@ -184,6 +184,56 @@
   applySiteConfig();
 
 
+  // Reenvío de UTMs al checkout de Hotmart.
+  // Solo decora enlaces cuyo host sea exactamente pay.hotmart.com; Wiapy y otros dominios
+  // quedan fuera de esta lógica. Se preservan parámetros propios del checkout, como `off`.
+  function appendCurrentUtmsToHotmart(anchor) {
+    if (!(anchor instanceof HTMLAnchorElement)) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+
+    let checkoutUrl;
+    try {
+      checkoutUrl = new URL(href, window.location.href);
+    } catch (_) {
+      return;
+    }
+
+    if (checkoutUrl.hostname.toLowerCase() !== 'pay.hotmart.com') return;
+
+    const landingParams = new URLSearchParams(window.location.search);
+    let changed = false;
+
+    landingParams.forEach((value, key) => {
+      // Reenvía cualquier UTM presente en la URL de entrada: utm_source, utm_medium,
+      // utm_campaign, utm_content, utm_term y cualquier futura key utm_*.
+      if (/^utm_/i.test(key) && value) {
+        checkoutUrl.searchParams.set(key, value);
+        changed = true;
+      }
+    });
+
+    if (changed) anchor.setAttribute('href', checkoutUrl.toString());
+  }
+
+  function decorateHotmartLinksWithUtms() {
+    document.querySelectorAll('a[href]').forEach((anchor) => {
+      appendCurrentUtmsToHotmart(anchor);
+    });
+  }
+
+  // Los href de pago primero se cargan desde config.js y después reciben las UTMs.
+  decorateHotmartLinksWithUtms();
+
+  // Revalida justo antes de navegar por si el href fue actualizado dinámicamente.
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+    const anchor = event.target.closest('a[href]');
+    if (anchor) appendCurrentUtmsToHotmart(anchor);
+  }, true);
+
+
   // Google Analytics 4 + Google Tag Manager: rastreo de todos los enlaces y botones.
   // Los CTAs principales reciben nombres cortos y legibles; los demás se generan
   // automáticamente a partir del texto/aria-label y respetan el límite de 40 caracteres de GA4.

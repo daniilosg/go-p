@@ -123,13 +123,13 @@ A cada nova aparição da notificação, o site sorteia outro nome e outra local
 
 ## Links de pagamento no config.js
 
-Os três checkouts `pay.wiapy.com` também são gerenciados pelo `config.js`:
+Os três checkouts `pay.hotmart.com` também são gerenciados pelo `config.js`:
 
 ```js
 "links_pagamento": {
-  "basic": "https://pay.wiapy.com/xt5iPaGkbRKi?...",
-  "premium-slim": "https://pay.wiapy.com/oYuKW2d6xmy?...",
-  "premium-fat": "https://pay.wiapy.com/4I0swkB43iQK"
+  "basic": "https://pay.hotmart.com/L107582936U?off=tj29xkic",
+  "premium-slim": "https://pay.hotmart.com/L107582936U?off=4c9z96xq",
+  "premium-fat": "https://pay.hotmart.com/L107582936U?off=3kgdxz0r"
 }
 ```
 
@@ -138,3 +138,9 @@ Os três checkouts `pay.wiapy.com` também são gerenciados pelo `config.js`:
 - `premium-fat`: checkout de R$29,90 do card Plan Premium.
 
 Para trocar um checkout, altere somente o URL da key correspondente. Os botões mantêm os URLs originais no HTML apenas como fallback caso o JavaScript não seja carregado.
+
+
+### Repasse de UTMs para Hotmart
+
+O `js/main.js` preserva automaticamente as UTMs da URL da landing page nos checkouts `pay.hotmart.com`.
+São repassados parâmetros cujo nome começa com `utm_` (por exemplo `utm_source`, `utm_medium`, `utm_campaign`, `utm_content` e `utm_term`). Os parâmetros próprios do checkout, como `off`, são preservados. Essa lógica não é aplicada a Wiapy ou a outros domínios.
